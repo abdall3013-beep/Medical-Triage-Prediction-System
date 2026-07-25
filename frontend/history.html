@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Patient History</title>
+
+<link rel="stylesheet" href="history.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Patient History
+
+</h1>
+
+<div>
+
+<button id="refreshBtn">
+
+<i class="fa-solid fa-rotate"></i>
+
+Refresh
+
+</button>
+
+<button id="clearBtn">
+
+<i class="fa-solid fa-trash"></i>
+
+Clear All
+
+</button>
+
+<button onclick="window.location='index.html'">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</button>
+
+</div>
+
+</header>
+
+<section class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by Priority...">
+
+</section>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Age</th>
+
+<th>Priority</th>
+
+<th>Prediction</th>
+
+<th>Heart Rate</th>
+
+<th>Blood Pressure</th>
+
+<th>Time</th>
+
+<th>Delete</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+<script src="history.js"></script>
+
+</body>
+
+</html>

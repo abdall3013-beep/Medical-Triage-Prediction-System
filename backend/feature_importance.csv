@@ -1,0 +1,10 @@
+Feature,Coefficient
+oxygen_saturation,1.385577241720048
+arrival_mode,0.10573142657840066
+chronic_disease_count,-0.8205283629390402
+previous_er_visits,-0.9795160880774928
+systolic_blood_pressure,-0.9963206282272642
+age,-1.001298672404426
+heart_rate,-1.4276225519133785
+body_temperature,-1.780244577576556
+pain_level,-6.292071086301878

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Triage Prediction System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="background-animation">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-hospital"></i>
+
+        <div>
+
+            <h2>Medical Triage</h2>
+
+            <p>AI Prediction Dashboard</p>
+
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+
+        <button id="themeBtn">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <button onclick="window.location='history.html'">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            History
+
+        </button>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="ai-badge">
+
+            <i class="fa-solid fa-brain"></i>
+
+            AI Powered
+
+        </span>
+
+        <h1>
+
+            Medical Triage
+
+            <span>Prediction System</span>
+
+        </h1>
+
+        <p>
+
+            Intelligent Emergency Patient Prioritization
+            using Machine Learning, Flask and Scikit-Learn.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="start-btn">
+
+                <i class="fa-solid fa-stethoscope"></i>
+
+                Start Prediction
+
+            </button>
+
+            <button class="secondary-btn"
+                onclick="window.location='history.html'">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="glass-card">
+
+            <h3>Model Accuracy</h3>
+
+            <h1>98.4%</h1>
+
+            <div class="progress">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+            <div class="mini-stats">
+
+                <div>
+
+                    <h2>24/7</h2>
+
+                    <p>Available</p>
+
+                </div>
+
+                <div>
+
+                    <h2>AI</h2>
+
+                    <p>Prediction</p>
+
+                </div>
+
+                <div>
+
+                    <h2>Fast</h2>
+
+                    <p>Response</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="statistics">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h2 id="totalCases">0</h2>
+
+        <p>Total Predictions</p>
+
+    </div>
+
+    <div class="stat-card high">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <h2 id="highCases">0</h2>
+
+        <p>High Risk</p>
+
+    </div>
+
+    <div class="stat-card medium">
+
+        <i class="fa-solid fa-user-clock"></i>
+
+        <h2 id="mediumCases">0</h2>
+
+        <p>Medium Risk</p>
+
+    </div>
+
+    <div class="stat-card low">
+
+        <i class="fa-solid fa-heart-circle-check"></i>
+
+        <h2 id="lowCases">0</h2>
+
+        <p>Low Risk</p>
+
+    </div>
+
+</section>
+
+<div class="container">
+
+<div class="left-panel">
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-user-doctor"></i>
+
+Patient Information
+
+</h2>
+
+<div class="grid">
+    <div class="form-group">
+
+    <label><i class="fa-solid fa-user"></i> Age</label>
+
+    <input type="number" id="age" placeholder="Enter Patient Age">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-heart-pulse"></i> Heart Rate</label>
+
+    <input type="number" id="heart_rate" placeholder="BPM">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-droplet"></i> Blood Pressure</label>
+
+    <input type="number" id="systolic_blood_pressure" placeholder="mmHg">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-lungs"></i> Oxygen Saturation</label>
+
+    <input type="number" id="oxygen_saturation" placeholder="%">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-temperature-three-quarters"></i> Body Temperature</label>
+
+    <input type="number" step="0.1" id="body_temperature" placeholder="°C">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-face-grimace"></i> Pain Level</label>
+
+    <input type="number" id="pain_level" placeholder="0 - 10">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-notes-medical"></i> Chronic Diseases</label>
+
+    <input type="number" id="chronic_disease_count">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-hospital-user"></i> Previous ER Visits</label>
+
+    <input type="number" id="previous_er_visits">
+
+</div>
+
+<div class="form-group">
+
+    <label><i class="fa-solid fa-truck-medical"></i> Arrival Mode</label>
+
+    <select id="arrival_mode">
+
+        <option value="0">Walk-in</option>
+
+        <option value="1">Ambulance</option>
+
+    </select>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+    <button id="predictBtn" class="predict-btn">
+
+        <i class="fa-solid fa-stethoscope"></i>
+
+        Predict Patient
+
+    </button>
+
+    <button id="resetBtn" class="reset-btn">
+
+        <i class="fa-solid fa-rotate-left"></i>
+
+        Reset
+
+    </button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right-panel">
+
+<div class="card prediction-card">
+
+<h2>
+
+<i class="fa-solid fa-brain"></i>
+
+AI Prediction
+
+</h2>
+
+<div id="spinner" class="spinner"></div>
+
+<div class="prediction-circle">
+
+<h1 id="prediction">
+
+Waiting...
+
+</h1>
+
+</div>
+
+<h2 id="priority">
+
+--
+
+</h2>
+
+<p id="recommendation">
+
+Fill patient information then press Predict.
+
+</p>
+
+<small id="predictionTime"></small>
+
+<div class="confidence">
+
+<div class="confidence-header">
+
+<span>AI Confidence</span>
+
+<span>98%</span>
+
+</div>
+
+<div class="confidence-bar">
+
+<div class="confidence-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-chart-pie"></i>
+
+Prediction Statistics
+
+</h2>
+
+<canvas id="triageChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+<section class="recent-section">
+
+    <div class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-clock"></i>
+
+            Recent Patients
+
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Age</th>
+
+                    <th>Priority</th>
+
+                    <th>Time</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="recentPatients">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<footer>
+
+
+<h3>
+
+Medical Triage Prediction System
+
+</h3>
+
+<p>
+
+Powered By Flask • Scikit-Learn • Chart.js • JavaScript
+
+</p>
+
+<p>
+
+NTI Graduation Project 2026
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
